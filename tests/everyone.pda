@@ -1,0 +1,79 @@
+# Everyone
+# $Id: everyone.pda,v 1.1 2003/06/16 22:54:30 durak Exp $
+
+3 2 2 # number_of_states alphabet_size stack_alphabet_size
+
+# state 0
+## input letter 0 -- bof
+### stack letter 0
+0 1 0 # q0, right, nop
+### stack letter 1
+0 1 0 # q0, right, nop
+
+## input letter 1 - eof
+### stack letter 0
+1 -1 0 # q1, left, nop
+### stack letter 1
+1 -1 0 # q0, left, push b
+
+## input letter 2 - a
+### stack letter 0
+0 1 1 # q0, right, push a
+### stack letter 1
+0 1 1 # q0, right, push a
+
+## input letter 3 - b
+### stack letter 0
+0 1 2 # q0, right, push b
+### stack letter 1
+0 1 2 # q0, right, push b
+
+# state 1 -- rewind
+## input letter 0 -- bof
+### stack letter 0
+2 1 0
+### stack letter 1
+2 1 0
+
+## input letter 1 - eof
+### stack letter 0
+1 -1 0
+### stack letter 1
+1 -1 0
+
+## input letter 2 - a
+### stack letter 0
+1 -1 0
+### stack letter 1
+1 -1 0
+
+## input letter 3 - b
+### stack letter 0
+1 -1 0
+### stack letter 1
+1 -1 0
+
+# state 2
+
+## input letter 0 -- bof
+### stack letter 0
+2 0 0 # q1, nop, nop, ie loop
+### stack letter 1
+2 0 0 # q1, nop, nop, ie loop
+
+## input letter 1 - eof
+### stack letter 0
+2 0 -1
+### stack letter 1
+2 0 -1
+
+## input letter 2 - a
+### stack letter 0
+2 1 -1 # q1, right, pop
+### stack letter 1
+2 0 0 # loop
+## input letter 3 - b
+### stack letter 0
+2 0 0 # loop
+### stack letter 1
+2 1 -1 # q1, left, pop

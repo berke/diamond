@@ -1,0 +1,89 @@
+# Exponential
+# $Id: exponential.pda,v 1.1 2003/06/17 14:12:22 durak Exp $
+
+5 1 2 # number_of_states alphabet_size stack_alphabet_size
+
+# state 0
+## input letter 0 -- bof
+### stack letter 0
+0 1 1
+### stack letter 1
+0 1 1
+## input letter 1 - eof
+### stack letter 0
+1 0 0
+### stack letter 1
+1 0 0
+## input letter 2 - a
+### stack letter 0
+0 1 1
+### stack letter 1
+0 1 1
+
+# state 1
+## input letter 0 -- bof
+### stack letter 0
+2 0 0
+### stack letter 1
+2 0 0
+## input letter 1 - eof
+### stack letter 0
+1 -1 0
+### stack letter 1
+1 -1 0
+## input letter 2 - a
+### stack letter 0
+1 -1 0
+### stack letter 1
+1 -1 0
+
+# state 2
+## input letter 0 -- bof
+### stack letter 0
+3 0 -1
+### stack letter 1
+2 1 -1
+## input letter 1 - eof
+### stack letter 0
+2 0 -1
+### stack letter 1
+2 0 -1
+## input letter 2 - a
+### stack letter 0
+3 0 -1
+### stack letter 1
+2 1 -1
+
+# state 3
+## input letter 0 -- bof
+### stack letter 0
+4 0 2
+### stack letter 1
+4 0 2
+## input letter 1 - eof
+### stack letter 0
+4 0 2
+### stack letter 1
+4 0 2
+## input letter 2 - a
+### stack letter 0
+4 0 2
+### stack letter 1
+4 0 2
+
+# state 4
+## input letter 0 -- bof
+### stack letter 0
+2 0 0
+### stack letter 1
+2 0 0
+## input letter 1 - eof
+### stack letter 0
+4 -1 1
+### stack letter 1
+4 -1 1
+## input letter 2 - a
+### stack letter 0
+4 -1 1
+### stack letter 1
+4 -1 1
